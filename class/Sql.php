@@ -11,13 +11,14 @@ class Sql extends PDO{
 		//utiliza o this pois a variavel é private fora do método
 		//cria objeto do PDO e faz a conexão com o banco
 		$this->conn = new PDO("mysql:dbname=dbphp7;host=localhost", "root", "");
+						  
 	}
 
 	////////UTILIZAÇÃO DE COMANDOS SQL/////////
 
 	private function setParams($statment, $parameters = array()){
 		foreach ($parameters as $key => $value) {
-			$this->setParam($key, $value);
+			$this->setParam($statment, $key, $value);
 		}
 	}
 
